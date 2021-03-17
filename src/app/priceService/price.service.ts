@@ -12,7 +12,7 @@ export class PriceService {
 
   getBtcPrice(): Observable<Array<string>> {
     console.log('asking btc price');
-    return this.http.get<Array<string>>(`http://localhost:${environment.process.env.PORT}/btc`);
+    return this.http.get<Array<string>>(`http://localhost:${process.env.PORT}/btc`);
   }
 
 }
