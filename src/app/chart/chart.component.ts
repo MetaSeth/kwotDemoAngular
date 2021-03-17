@@ -13,6 +13,8 @@ export class ChartComponent implements OnInit, AfterViewInit {
   @ViewChild('btcCanvas') btcCanvas!: ElementRef;
   btcChart!: Chart;
   BtcPrices: Array<number> = new Array();
+  labels = ['01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
+  '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00'];
   constructor(private priceService: PriceService) { }
   ngAfterViewInit(): void {
     this.getBtcPrices();
@@ -23,11 +25,10 @@ export class ChartComponent implements OnInit, AfterViewInit {
     this.priceService.getBtcPrice().subscribe({ next: (btcPrices) => this.chartInit(btcPrices.map(element => parseFloat(element))) });
   }
   chartInit(btcPrices: number[]): void {
-    // this.getBtcPrices();
     this.btcChart = new Chart(this.btcCanvas.nativeElement, {
       type: 'line',
       data: {
-        labels: ['1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', '24h'],
+        labels: this.labels,
         datasets: [
           {
             label: 'Today Bitcoin price',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { environment} from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +12,7 @@ export class PriceService {
 
   getBtcPrice(): Observable<Array<string>> {
     console.log('asking btc price');
-    return this.http.get<Array<string>>(`http://localhost:${process.env.PORT || 3000}/btc`);
+    return this.http.get<Array<string>>(`http://localhost:${environment.process.env.PORT}/btc`);
   }
-
 
 }
