@@ -12,7 +12,7 @@ export class PriceService {
 
   getBtcPrice(): Observable<Array<string>> {
     console.log('asking btc price');
-    return this.http.get<Array<string>>(`http://localhost:${process.env.PORT || 3000}/btc`);
+    return this.http.get<Array<string>>(`https://kwotdemonode.herokuapp.com/btc:${process.env.PORT || 3000}/btc`);
   }
 
 }
