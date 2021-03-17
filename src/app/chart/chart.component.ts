@@ -31,7 +31,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
         labels: this.labels,
         datasets: [
           {
-            label: 'Today Bitcoin price',
+            label: 'Today Bitcoin price (EUR)',
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',
